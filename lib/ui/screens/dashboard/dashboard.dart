@@ -47,38 +47,43 @@ class DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: _onItemTapped,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_max_rounded),
-              label: 'Home',
-              // backgroundColor: Colors.red,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.wallet_rounded),
-              label: 'Lorem',
-              // backgroundColor: Colors.green,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.folder_copy_rounded),
-              label: 'Lorem',
-              // backgroundColor: Colors.yellow,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Lorem',
-              // backgroundColor: Colors.blue,
-            ),
-          ],
-          showSelectedLabels: false,
-          backgroundColor: Colors.deepPurple,
-
-          showUnselectedLabels: false,
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.deepPurpleAccent,
-          type: BottomNavigationBarType.fixed, // Fixed
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.deepPurple,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.home_max_rounded),
+                color: _selectedIndex == 0
+                    ? Colors.white
+                    : Colors.deepPurpleAccent[100],
+                onPressed: () => _onItemTapped(0),
+              ),
+              IconButton(
+                icon: Icon(Icons.wallet_rounded),
+                color: _selectedIndex == 1
+                    ? Colors.white
+                    : Colors.deepPurpleAccent[100],
+                onPressed: () => _onItemTapped(1),
+              ),
+              SizedBox(width: 50),
+              IconButton(
+                icon: Icon(Icons.folder_copy_rounded),
+                color: _selectedIndex == 2
+                    ? Colors.white
+                    : Colors.deepPurpleAccent[100],
+                onPressed: () => _onItemTapped(2),
+              ),
+              IconButton(
+                icon: Icon(Icons.settings_rounded),
+                color: _selectedIndex == 3
+                    ? Colors.white
+                    : Colors.deepPurpleAccent[100],
+                onPressed: () => _onItemTapped(3),
+              ),
+            ],
+          ),
         ),
       ),
     );

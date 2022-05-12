@@ -1,80 +1,57 @@
+// ignore_for_file: prefer_const_constructors
 part of widgets;
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     Key? key,
-    required this.name,
-    required this.image,
-    required this.onPressCart,
-    required this.onPressWishlist,
+    required this.amount,
   }) : super(key: key);
 
-  final String name;
-  final String image;
-  final Function onPressCart;
-  final Function onPressWishlist;
-
+  final String amount;
+  // final Function onPress;
   @override
   Widget build(BuildContext context) {
-    var statusBarHeight = MediaQuery.of(context).viewPadding.top;
-
     return Container(
       padding: EdgeInsets.only(
+        top: MediaQuery.of(context).viewPadding.top + 8,
         left: 16,
         right: 16,
-        top: 8 + statusBarHeight,
         bottom: 8,
       ),
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(8),
-          bottomRight: Radius.circular(8),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.red.withOpacity(0.2),
-            spreadRadius: 10,
-            blurRadius: 20,
-          ),
-        ],
-      ),
-      child: Row(
+      width: MediaQuery.of(context).size.width,
+      color: Colors.deepPurple,
+      child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(44),
-            child: Image.network(
-              image,
-              height: 44,
-              fit: BoxFit.cover,
-              width: 44,
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Hello',
+                  Text(
+                    "Estimate Assets",
                     style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+                      color: Colors.deepPurple[100],
                       fontWeight: FontWeight.w300,
+                      fontSize: 12,
                     ),
                   ),
                   Text(
-                    name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
+                    amount,
+                    style: TextStyle(
+                      color: Color(0xFFEDE7F6),
+                      fontSize: 20,
                     ),
                   ),
                 ],
               ),
-            ),
+              IconButton(
+                icon: Icon(Icons.notifications_rounded),
+                color: Colors.white,
+                onPressed: () {},
+              ),
+            ],
           ),
         ],
       ),

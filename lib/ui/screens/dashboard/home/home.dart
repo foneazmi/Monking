@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 part of screens;
 
 class HomeScreen extends StatelessWidget {
@@ -5,12 +7,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
-      child: Scaffold(
-        body: Center(
-          child: Text('Home'),
-        ),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Column(
+        children: [
+          HomeHeader(amount: currency(100000000)),
+          HomeListTransactionPage(),
+        ],
       ),
     );
   }

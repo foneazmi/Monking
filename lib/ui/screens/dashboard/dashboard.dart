@@ -34,17 +34,8 @@ class DashboardScreenState extends State<DashboardScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.green,
-          onPressed: () {
-            // Navigator.of(context).push(MaterialPageRoute(
-            //     builder:(BuildContext context){
-            //       return DynamicPage('Detail');
-            //     }
-            // ));
-          },
-          tooltip: '',
-          child: Icon(
-            Icons.add,
-          ),
+          onPressed: () => Navigator.pushNamed(context, '/transaction'),
+          child: Icon(Icons.add),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(

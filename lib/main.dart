@@ -25,12 +25,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       title: 'Flutter Demo',
-      initialRoute: '/splash',
+      initialRoute: '/',
       routes: {
-        '/splash': (context) => const SplashScreen(),
+        '/': (context) => const SplashScreen(),
         '/dashboard': (context) => const DashboardScreen(),
       },
-      home: const DashboardScreen(),
     );
   }
 }

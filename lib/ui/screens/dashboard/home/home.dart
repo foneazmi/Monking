@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       value: SystemUiOverlayStyle.light,
       child: Column(
         children: [
-          HomeHeader(amount: currency(100000000)),
+          HomeHeader(amount: currency(1000000)),
           HomeListTransactionPage(),
         ],
       ),

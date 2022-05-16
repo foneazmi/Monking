@@ -8,34 +8,11 @@ class TransactionScreen extends StatefulWidget {
 }
 
 class _TransactionScreenState extends State<TransactionScreen> {
-  final transactionList = Hive.box('transaction_list');
+  void setData() async {}
 
-  var type = "test";
+  void deleteData() async {}
 
-  void setData() async {
-    await transactionList.add({"description": "food", "amount": "10000"});
-    // print('Name: ${box.get('name')}');
-  }
-
-  void deleteData() async {
-    // await transactionList.deleteAt(0);
-    // await Hive.deleteBoxFromDisk('transaction_list');
-
-    // print('Name: ${box.get('name')}');
-  }
-
-  // Get all items from the database
-  void getData() {
-    final data = transactionList.keys.map((key) {
-      final value = transactionList.get(key);
-      return {
-        "key": key,
-        "description": value["description"],
-        "amount": value['amount']
-      };
-    }).toList();
-    print(data);
-  }
+  void getData() {}
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +21,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Add New Transaction $type"),
+          title: const Text("Add New Transaction"),
         ),
         body: Column(
           children: [
@@ -61,23 +38,21 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: const Text('Delete Data'),
             ),
             TextButton(
-                onPressed: () => showFloatingModalBottomSheet(
-                      context: context,
-                      builder: (context) => Container(
-                        height: 200,
-                        color: Colors.red,
-                        child: TextButton(
-                          child: Text('Close'),
-                          onPressed: () {
-                            setState(() {
-                              type = "food";
-                            });
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                    ),
-                child: Text('Float Modal'))
+              onPressed: () => showFloatingModalBottomSheet(
+                context: context,
+                builder: (context) => Container(
+                  height: 200,
+                  color: Colors.red,
+                  child: TextButton(
+                    child: const Text('Close'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ),
+              child: const Text('Float Modal'),
+            )
           ],
         ),
       ),

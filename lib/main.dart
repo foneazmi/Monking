@@ -2,15 +2,11 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:monking/ui/screens/screens.dart';
 import 'package:window_size/window_size.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  await Hive.openBox('transaction_list');
-
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowTitle('Monking');
     setWindowMinSize(const Size(320, 640));
@@ -32,7 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/dashboard': (context) => const DashboardScreen(),
-        '/transaction': (context) => TransactionScreen(),
+        '/transaction': (context) => const TransactionScreen(),
       },
     );
   }

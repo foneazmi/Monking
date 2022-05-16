@@ -55,36 +55,27 @@ class ListTransactionPageItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var listData = [
       {
-        "title": "Title 1",
-        "description": "Description 1",
-        "amount": "1000000",
+        "title": "Food",
+        "description": "Makan",
+        "amount": "-200000",
       },
       {
-        "title": "Title 2",
-        "description": "Description 2",
-        "amount": "2000000",
+        "title": "Income",
+        "description": "Gaji Bulan May",
+        "amount": "11800000",
       },
       {
-        "title": "Title 3",
-        "description": "Description 3",
-        "amount": "3000000",
-      },
-      {
-        "title": "Title 4",
-        "description": "Description 4",
-        "amount": "-4000000",
+        "title": "Expense",
+        "description": "Bayar listrik",
+        "amount": "-200000",
       },
     ];
-    //  var rawData = {"name": "Tom", 'Email': 'tom@xyz.com'};
-    //  rawData.forEach((k,v) => print('${k}: ${v}'));
     List<Widget> listings = listData
         .map((data) => ListTransactionItem(
             title: data["title"] ?? "",
             description: data["description"] ?? "",
             amount: data["amount"] ?? "0"))
         .toList();
-    // List<Widget> listings =
-    //     List<Widget>.filled(numberOfWidgets, const ListTransactionItem());
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),

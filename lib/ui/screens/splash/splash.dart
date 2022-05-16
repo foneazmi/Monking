@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         body: Center(
           child: Text(
-            'My Flutter Playground',
+            'Monking',
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(
                 color: Colors.white,
